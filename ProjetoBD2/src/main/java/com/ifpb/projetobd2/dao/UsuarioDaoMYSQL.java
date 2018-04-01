@@ -53,4 +53,23 @@ public class UsuarioDaoMYSQL {
         conn.close();
         return null;
     }
+
+    public boolean autenticar(String email, String senha) throws ClassNotFoundException, SQLException {
+
+        conn = ConFactory.getConnection();
+        String sql = "SELECT email FROM usuario WHERE email = ? AND senha = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, email);
+        stmt.setString(2, senha);
+
+        if (stmt.executeQuery().next()) {
+
+            stmt.close();
+            conn.close();
+            return true;
+        }
+        stmt.close();
+        conn.close();
+        return false;
+    }
 }

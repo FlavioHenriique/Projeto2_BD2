@@ -28,4 +28,8 @@ public class GerenciadorUsuario {
     public Usuario buscar(String email) throws SQLException, ClassNotFoundException{
         return dao.buscar(email);
     }
+    
+    public boolean autenticar(String email, String senha) throws ClassNotFoundException, SQLException{
+        return dao.autenticar(email, senha);
+    }
 }
