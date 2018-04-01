@@ -4,26 +4,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Página inicial</title>
         <link rel="stylesheet" href="css/bootstrap.css">
     </head>
     <body>
-        <div class="container row">
-            <div class="col">
-                
-                    <h1>
-                        Formulario
-                    </h1>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email"  class="form-control" id="email"><br><br><br>
-                        <label for="senha">Senha</label>
-                        <input type="password"  class="form-control" id="senha"><br><br>
-
-                        <input type="submit" class="btn btn-primary" value="Enviar">
-                    </div>
-                
-            </div>
-        </div>
+    <center>
+        <h2>Login</h2>
+        <input type="email" name="email" placeholder="Email"><br>
+        <br>
+        <input type="password" name="senha" placeholder="Senha"><br>
+        <br>
+        <input type="submit" value="Entrar">
+        
+    </center>
     </body>
 </html>
