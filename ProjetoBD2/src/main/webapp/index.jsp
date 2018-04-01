@@ -15,7 +15,16 @@
         <input type="password" name="senha" placeholder="Senha"><br>
         <br>
         <input type="submit" value="Entrar">
-        
+        <br><br><br>
+
+        <form method="post" action="front">
+            <h2>Cadastro usuário</h2>
+            <input type="hidden" name="command" value="CadastroUsuario">
+            <input type="text" name="nome" placeholder="Digite o nome" required><br><br>
+            <input type="email" placeholder="Digite o email" name="email" required><br><br>
+            <input type="password" name="senha" placeholder="Senha" required><br><br>
+            <input type="submit" value="Cadastrar">
+        </form>
     </center>
-    </body>
+</body>
 </html>
