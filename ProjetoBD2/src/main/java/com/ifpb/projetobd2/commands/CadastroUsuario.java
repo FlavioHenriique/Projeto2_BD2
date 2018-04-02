@@ -24,7 +24,7 @@ public class CadastroUsuario implements Command {
                 String senha = request.getParameter("senha");
 
                 gerenciador.salvar(nome, email, senha);
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("index.jsp?mensagem=1");
             }
         } catch (SQLException ex) {
             Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
