@@ -1,0 +1,15 @@
+#MySQL
+
+CREATE TABLE USUARIO(
+	nome VARCHAR(50),
+	email VARCHAR(50) PRIMARY KEY,
+	senha VARCHAR(50)
+)ENGINE=INNODB;
+
+
+#MongoDB
+
+use projetobd2;
+db.createCollection("topico");
+
+
