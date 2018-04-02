@@ -4,4 +4,11 @@ body{
 
 .btn{
     background-color: #0d47a1;
+
+}
+
+.card{
+
+    border-radius: 50px;
+    border: solid 1px;
 }

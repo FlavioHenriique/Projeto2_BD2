@@ -1,5 +1,6 @@
 package com.ifpb.projetobd2.commands;
 
+import com.ifpb.projetobd2.modelo.Usuario;
 import com.ifpb.projetodb2.gerenciadores.GerenciadorUsuario;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,8 +17,13 @@ public class Login implements Command {
 
         try {
             GerenciadorUsuario gerenciador = new GerenciadorUsuario();
-            if (gerenciador.autenticar(request.getParameter("email"), request.getParameter("senha"))) {
+            Usuario usuario = gerenciador.autenticar(request.getParameter("email"), request.getParameter("senha"));
+            if (usuario != null) {
+
+                request.getSession().setAttribute("usuario", usuario);
                 response.sendRedirect("inicial.jsp");
+            } else {
+                response.sendRedirect("index.jsp?mensagem=3");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);

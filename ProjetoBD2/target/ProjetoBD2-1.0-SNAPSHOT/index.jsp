@@ -57,12 +57,9 @@
                             <input type="text" name="nome" placeholder="Digite o nome" required class="form-control input-lg"><br><br>
                             <input type="email" placeholder="Digite o email" name="email" required class="form-control input-lg"><br><br>
                             <input type="password" name="senha" placeholder="Senha" required class="form-control input-lg"><br><br>
-                            <input type="submit" value="Cadastrar" class="btn btn-secondary">
+                            <input type="submit" value="Cadastrar" class="btn btn-primary">
                         </form>
                     </div>
-                    <div class="modal-footer">
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -79,6 +76,10 @@
         case "2":
         {
             swal("Erro!", "Este email já está sendo utilizado!", "error");
+        }
+         case "3":
+        {
+            swal("Erro!", "Usuário não encontrado!", "error");
         }
     }
 </script>

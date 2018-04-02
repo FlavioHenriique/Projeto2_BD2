@@ -18,7 +18,7 @@ public class UsuarioDaoMYSQL {
     public boolean salvar(Usuario u) throws SQLException, ClassNotFoundException {
 
         conn = ConFactoryMYSQL.getConnection();
-       
+
         String sql = "INSERT INTO usuario (nome,email,senha) VALUES (?,?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
 
@@ -54,22 +54,26 @@ public class UsuarioDaoMYSQL {
         return null;
     }
 
-    public boolean autenticar(String email, String senha) throws ClassNotFoundException, SQLException {
+    public Usuario autenticar(String email, String senha) throws ClassNotFoundException, SQLException {
 
         conn = ConFactoryMYSQL.getConnection();
-        String sql = "SELECT email FROM usuario WHERE email = ? AND senha = ?";
+        String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, email);
         stmt.setString(2, senha);
+        ResultSet rs = stmt.executeQuery();
 
-        if (stmt.executeQuery().next()) {
+        if (rs.next()) {
 
+            Usuario u = buscar(rs.getString("email"));
+            
+            rs.close();
             stmt.close();
             conn.close();
-            return true;
+            return u;
         }
         stmt.close();
         conn.close();
-        return false;
+        return null;
     }
 }
