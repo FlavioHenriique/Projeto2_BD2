@@ -7,7 +7,6 @@
         <title>Página inicial</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/app.css">
-
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/swal.min.js"></script>

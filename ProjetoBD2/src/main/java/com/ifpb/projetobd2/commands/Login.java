@@ -17,7 +17,8 @@ public class Login implements Command {
 
         try {
             GerenciadorUsuario gerenciador = new GerenciadorUsuario();
-            Usuario usuario = gerenciador.autenticar(request.getParameter("email"), request.getParameter("senha"));
+            Usuario usuario = gerenciador.autenticar(request.getParameter("email"),
+                    request.getParameter("senha"));
             if (usuario != null) {
 
                 request.getSession().setAttribute("usuario", usuario);

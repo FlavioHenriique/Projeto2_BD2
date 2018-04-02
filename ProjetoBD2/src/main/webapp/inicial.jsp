@@ -7,6 +7,16 @@
         <title>Página inicial</title>
     </head>
     <body>
-       
+    <center>
+        <form method="post" action="front">
+            <input type="hidden" name="command" value="CadastroTopico" required>
+            <input type="text" name="conteudo" placeholder="conteudo" required><br>
+            <input type="text" name="titulo" placeholder="titulo" required><br>
+            <input type="text" name="id" placeholder="id" required><br>
+            
+            <input type="text" name="categoria" placeholder="categoria" required><br>
+            <input type="submit">
+        </form>
+    </center>
     </body>
 </html>

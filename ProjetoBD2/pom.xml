@@ -21,8 +21,12 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+<dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongo-java-driver</artifactId>
+    <version>3.6.2</version>
+</dependency>
 
-   
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
