@@ -7,7 +7,7 @@
         <title>Página inicial</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/app.css">
-        
+
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/swal.min.js"></script>
@@ -44,14 +44,14 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Cadastro de usuário</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Cadastre-se</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <form method="post" action="front">
-                            <h2>Cadastro usuário</h2>
+                            <h2>Cadastro de usuário</h2>
                             <br>
                             <input type="hidden" name="command" value="CadastroUsuario">
                             <input type="text" name="nome" placeholder="Digite o nome" required class="form-control input-lg"><br><br>
@@ -70,10 +70,15 @@
 </body>
 <script>
     var mensagem = "${param.mensagem}";
-    
-    switch(mensagem){
-        case "1":{
-                swal("OK!","Seu cadastro foi realizado!","success");
+
+    switch (mensagem) {
+        case "1":
+        {
+            swal("OK!", "Seu cadastro foi realizado!", "success");
+        }
+        case "2":
+        {
+            swal("Erro!", "Este email já está sendo utilizado!", "error");
         }
     }
 </script>

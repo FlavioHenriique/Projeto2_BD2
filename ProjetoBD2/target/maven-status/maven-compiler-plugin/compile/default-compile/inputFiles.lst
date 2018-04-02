@@ -2,9 +2,9 @@
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/DaoFactoryIF.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/DaoFactory.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/servlet/FrontServlet.java
-/home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/ConFactory.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/dao/UsuarioDaoMYSQL.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetodb2/gerenciadores/GerenciadorUsuario.java
+/home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/ConFactoryMYSQL.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/modelo/Usuario.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/DaoFactoryMYSQL.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/commands/CadastroUsuario.java

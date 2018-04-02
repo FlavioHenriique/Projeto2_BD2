@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inicial</title>
+        <title>Página inicial</title>
     </head>
     <body>
         entrou

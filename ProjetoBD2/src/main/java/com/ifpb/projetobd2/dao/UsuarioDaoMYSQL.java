@@ -1,6 +1,6 @@
 package com.ifpb.projetobd2.dao;
 
-import com.ifpb.projetobd2.factory.ConFactory;
+import com.ifpb.projetobd2.factory.ConFactoryMYSQL;
 import com.ifpb.projetobd2.modelo.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,8 +17,8 @@ public class UsuarioDaoMYSQL {
 
     public boolean salvar(Usuario u) throws SQLException, ClassNotFoundException {
 
-        conn = ConFactory.getConnection();
-
+        conn = ConFactoryMYSQL.getConnection();
+       
         String sql = "INSERT INTO usuario (nome,email,senha) VALUES (?,?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
 
@@ -33,7 +33,7 @@ public class UsuarioDaoMYSQL {
 
     public Usuario buscar(String email) throws SQLException, ClassNotFoundException {
 
-        conn = ConFactory.getConnection();
+        conn = ConFactoryMYSQL.getConnection();
 
         String sql = "SELECT * FROM usuario WHERE email = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -56,7 +56,7 @@ public class UsuarioDaoMYSQL {
 
     public boolean autenticar(String email, String senha) throws ClassNotFoundException, SQLException {
 
-        conn = ConFactory.getConnection();
+        conn = ConFactoryMYSQL.getConnection();
         String sql = "SELECT email FROM usuario WHERE email = ? AND senha = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, email);
