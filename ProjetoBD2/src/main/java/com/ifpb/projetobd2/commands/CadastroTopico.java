@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.bson.types.ObjectId;
 
 public class CadastroTopico implements Command{
 
@@ -24,9 +25,9 @@ public class CadastroTopico implements Command{
         
         t.setConteudo(request.getParameter("conteudo"));
         t.setData(Date.valueOf(LocalDate.now()));
-        t.setId(request.getParameter("id"));
-        t.setTitulo(request.getParameter("tipo"));
-        t.setUsuario(atual);
+        t.setId(ObjectId.get());
+        t.setTitulo(request.getParameter("titulo"));
+        t.setUsuario(atual.getEmail());
         GerenciadorTopico g = new GerenciadorTopico();
         g.salvar(t);
         try {
