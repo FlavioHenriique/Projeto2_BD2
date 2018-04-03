@@ -3,6 +3,7 @@ package com.ifpb.projetodb2.gerenciadores;
 import com.ifpb.projetobd2.dao.TopicoDaoMongo;
 import com.ifpb.projetobd2.modelo.Topico;
 import java.util.List;
+import org.bson.types.ObjectId;
 
 public class GerenciadorTopico {
 
@@ -26,5 +27,9 @@ public class GerenciadorTopico {
 
     public List<Topico> buscaTecnologia(String tecnologia) {
         return dao.buscarTecnologia(tecnologia);
+    }
+    
+    public Topico buscarTopico(ObjectId id){
+        return dao.buscarTopico(id);
     }
 }

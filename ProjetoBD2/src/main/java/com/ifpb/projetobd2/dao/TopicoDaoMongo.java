@@ -12,11 +12,11 @@ import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.ne;
 import static com.mongodb.client.model.Indexes.ascending;
 import static com.mongodb.client.model.Indexes.descending;
-import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver.iterator;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 
 public class TopicoDaoMongo {
 
@@ -47,8 +47,8 @@ public class TopicoDaoMongo {
 
     public List<Topico> topicosUsuarios(String email) {
 
-        MongoCursor cursor = conn.find(new BasicDBObject("usuario", 
-           (new BasicDBObject("$ne", email)))).sort(descending("data")).iterator();
+        MongoCursor cursor = conn.find(new BasicDBObject("usuario",
+                (new BasicDBObject("$ne", email)))).sort(descending("data")).iterator();
 
         List<Topico> lista = new ArrayList<>();
 
@@ -74,5 +74,20 @@ public class TopicoDaoMongo {
         }
         return lista;
 
+    }
+
+    public Topico buscarTopico(ObjectId id) {
+
+        BasicDBObject query = new BasicDBObject();
+        query.put("_id", id);
+
+        MongoCursor cursor = conn.find(query).iterator();
+
+        if (cursor.hasNext()) {
+            Topico t = (Topico) cursor.next();
+            System.out.println(t.toString());
+            return t;
+        }
+        return null;
     }
 }

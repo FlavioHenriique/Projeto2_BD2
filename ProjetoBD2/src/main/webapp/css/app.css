@@ -25,3 +25,7 @@ hr{
 .topicos{
     background-color: white;
 }
+
+a{
+    text-decoration: none;
+}
