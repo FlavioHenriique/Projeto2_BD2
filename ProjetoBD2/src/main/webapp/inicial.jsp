@@ -13,9 +13,31 @@
 
         <%@include file="menu.jsp" %>
         <br>
-        
-        <c:forEach var="topico" items="${topicos}">
-            ${topico}
-        </c:forEach>
-</body>
+        <div>
+            <form class="form-inline">
+                <div class="form-group mx-sm-3 mb-2">
+                    <input type="hidden" name="command" value="BuscaCategoria">
+                    <select name="categoria" class="form-control">
+                        <option disabled selected value="">Buscar tópicos por tecnologia...</option>
+                        <option value="Java">Java</option>
+                        <option value="C#">C#</option>
+                        <option value="Python">Python</option>
+                        <option value="Javascript">Javascript</option>
+                        <option value="PHP">PHP</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-primary btn-lg" value="Buscar">
+            </form>
+        </div>
+        <br>
+        <c:if test="${topicosCategoria != null}">
+            <c:forEach var="topico" items="${topicosCategoria}">
+                <c:if test="${topico.usuario != usuario.email}">
+                    
+                ${topico}
+                </c:if>
+            </c:forEach>
+        </c:if>
+
+    </body>
 </html>

@@ -10,6 +10,8 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.ne;
+import static com.mongodb.client.model.Indexes.ascending;
+import static com.mongodb.client.model.Indexes.descending;
 import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver.iterator;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,8 @@ public class TopicoDaoMongo {
 
     public List<Topico> buscar(String email) {
 
-        MongoCursor cursor = conn.find(new BasicDBObject("usuario", email)).iterator();
+        MongoCursor cursor = conn.find(new BasicDBObject("usuario", email))
+                .sort(ascending("data")).iterator();
         List<Topico> lista = new ArrayList<>();
 
         while (cursor.hasNext()) {
@@ -44,7 +47,7 @@ public class TopicoDaoMongo {
 
     public List<Topico> topicosUsuarios(String email) {
 
-        MongoCursor cursor = conn.find(new BasicDBObject("usuario" ,(new BasicDBObject("$ne",email)))).iterator();
+        MongoCursor cursor = conn.find(new BasicDBObject("usuario", (new BasicDBObject("$ne", email)))).iterator();
         List<Topico> lista = new ArrayList<>();
 
         while (cursor.hasNext()) {
@@ -53,5 +56,22 @@ public class TopicoDaoMongo {
             lista.add(t);
         }
         return lista;
+    }
+
+    public List<Topico> buscarTecnologia(String tecnologia) {
+
+        BasicDBObject query = new BasicDBObject();
+        query.append("categoria", tecnologia);
+
+        MongoCursor cursor = conn.find(query).iterator();
+
+        List<Topico> lista = new ArrayList<>();
+
+        while (cursor.hasNext()) {
+            Topico t = (Topico) cursor.next();
+            lista.add(t);
+        }
+        return lista;
+
     }
 }
