@@ -5,28 +5,26 @@ import com.ifpb.projetodb2.gerenciadores.GerenciadorTopico;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MeusTopicos implements Command {
+public class Topicos implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
-        GerenciadorTopico g = new GerenciadorTopico();
+        GerenciadorTopico gTopico = new GerenciadorTopico();
         Usuario atual = (Usuario) request.getSession().getAttribute("usuario");
 
-        request.getSession().setAttribute("meusTopicos", g.buscar(atual.getEmail()));
-
+        request.setAttribute("topicos", gTopico.topicosUsuarios(atual.getEmail()));
+        
         try {
-            if (request.getParameter("mensagem") != null) {
-                response.sendRedirect("meustopicos.jsp?mensagem="+request.getParameter("mensagem"));
-            }else{
-                response.sendRedirect("meustopicos.jsp");
-            }
+           RequestDispatcher dispatcher = request.getRequestDispatcher("inicial.jsp");
+           dispatcher.forward(request, response);
         } catch (IOException ex) {
-            Logger.getLogger(MeusTopicos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Topicos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

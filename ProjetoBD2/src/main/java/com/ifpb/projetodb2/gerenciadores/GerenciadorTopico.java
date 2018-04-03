@@ -19,4 +19,8 @@ public class GerenciadorTopico {
     public List<Topico> buscar(String email) {
         return dao.buscar(email);
     }
+    
+    public List<Topico> topicosUsuarios(String email){
+        return dao.topicosUsuarios(email);
+    }
 }

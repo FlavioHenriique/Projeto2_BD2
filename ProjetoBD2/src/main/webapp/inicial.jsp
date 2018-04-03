@@ -13,6 +13,9 @@
 
         <%@include file="menu.jsp" %>
         <br>
-   
+        
+        <c:forEach var="topico" items="${topicos}">
+            ${topico}
+        </c:forEach>
 </body>
 </html>

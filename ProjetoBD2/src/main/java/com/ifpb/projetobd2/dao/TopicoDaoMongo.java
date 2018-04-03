@@ -9,6 +9,8 @@ import com.mongodb.DBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import static com.mongodb.client.model.Filters.ne;
+import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver.iterator;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
@@ -40,4 +42,16 @@ public class TopicoDaoMongo {
         return lista;
     }
 
+    public List<Topico> topicosUsuarios(String email) {
+
+        MongoCursor cursor = conn.find(new BasicDBObject("usuario" ,(new BasicDBObject("$ne",email)))).iterator();
+        List<Topico> lista = new ArrayList<>();
+
+        while (cursor.hasNext()) {
+            Topico t = (Topico) cursor.next();
+            System.out.println(t.getUsuario());
+            lista.add(t);
+        }
+        return lista;
+    }
 }

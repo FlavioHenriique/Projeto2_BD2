@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg ">
-    <a href="inicial.jsp" class="navbar-brand">Página inicial</a>
+    <a href="front?command=Topicos" class="navbar-brand">Página inicial</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul  class="navbar-nav mr-auto">
             <li class="nav-item active">

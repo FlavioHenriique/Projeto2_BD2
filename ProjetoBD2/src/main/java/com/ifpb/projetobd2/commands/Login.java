@@ -22,7 +22,7 @@ public class Login implements Command {
             if (usuario != null) {
 
                 request.getSession().setAttribute("usuario", usuario);
-                response.sendRedirect("inicial.jsp");
+                response.sendRedirect("front?command=Topicos");
             } else {
                 response.sendRedirect("index.jsp?mensagem=3");
             }

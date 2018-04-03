@@ -30,7 +30,7 @@ public class CadastroTopico implements Command{
         GerenciadorTopico g = new GerenciadorTopico();
         g.salvar(t);
         try {
-            response.sendRedirect("front?command=MeusTopicos");
+            response.sendRedirect("front?command=MeusTopicos&mensagem=1");
         } catch (IOException ex) {
             Logger.getLogger(CadastroTopico.class.getName()).log(Level.SEVERE, null, ex);
         }
