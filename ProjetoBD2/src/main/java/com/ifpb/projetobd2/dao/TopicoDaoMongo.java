@@ -35,7 +35,7 @@ public class TopicoDaoMongo {
     public List<Topico> buscar(String email) {
 
         MongoCursor cursor = conn.find(new BasicDBObject("usuario", email))
-                .sort(ascending("data")).iterator();
+                .sort(descending("data")).iterator();
         List<Topico> lista = new ArrayList<>();
 
         while (cursor.hasNext()) {
@@ -47,12 +47,13 @@ public class TopicoDaoMongo {
 
     public List<Topico> topicosUsuarios(String email) {
 
-        MongoCursor cursor = conn.find(new BasicDBObject("usuario", (new BasicDBObject("$ne", email)))).iterator();
+        MongoCursor cursor = conn.find(new BasicDBObject("usuario", 
+           (new BasicDBObject("$ne", email)))).sort(descending("data")).iterator();
+
         List<Topico> lista = new ArrayList<>();
 
         while (cursor.hasNext()) {
             Topico t = (Topico) cursor.next();
-            System.out.println(t.getUsuario());
             lista.add(t);
         }
         return lista;

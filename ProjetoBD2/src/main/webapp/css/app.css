@@ -18,6 +18,10 @@ body{
     border: solid 1px;
 }
 
+hr{
+    background-color: black;
+}
+
 .topicos{
     background-color: white;
 }

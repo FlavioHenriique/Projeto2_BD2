@@ -1,0 +1,15 @@
+package com.ifpb.projetobd2.commands;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class BuscaConteudo implements Command{
+
+    @Override
+    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+   
+        
+    }
+    
+}
