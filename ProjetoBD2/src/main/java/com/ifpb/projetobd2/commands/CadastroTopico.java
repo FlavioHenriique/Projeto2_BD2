@@ -22,7 +22,6 @@ public class CadastroTopico implements Command{
         
         Topico t = new Topico();
         t.setCategoria(request.getParameter("categoria"));
-        
         t.setConteudo(request.getParameter("conteudo"));
         t.setData(Date.valueOf(LocalDate.now()));
         t.setId(ObjectId.get());
@@ -31,7 +30,7 @@ public class CadastroTopico implements Command{
         GerenciadorTopico g = new GerenciadorTopico();
         g.salvar(t);
         try {
-            response.sendRedirect("inicial.jsp");
+            response.sendRedirect("front?command=MeusTopicos");
         } catch (IOException ex) {
             Logger.getLogger(CadastroTopico.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -7,6 +7,11 @@ body{
 
 }
 
+.navbar, .nav-link, .nav-link:hover, .navbar-brand, .navbar-brand:hover{
+    background-color: #0d47a1;
+    color:white;
+}
+
 .card{
 
     border-radius: 10px;
