@@ -33,7 +33,7 @@ public class TopicoDaoMongo {
     }
 
     public List<Topico> buscar(String email) {
-
+        
         MongoCursor cursor = conn.find(new BasicDBObject("usuario", email))
                 .sort(descending("data")).iterator();
         List<Topico> lista = new ArrayList<>();
