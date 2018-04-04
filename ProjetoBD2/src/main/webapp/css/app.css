@@ -24,8 +24,16 @@ hr{
 
 .topicos{
     background-color: white;
+    border-radius: 10px;
+    border: 1px solid;
+    
+    padding: 10px 10px 10px 10px;
 }
 
 a{
     text-decoration: none;
+}
+
+.comentar{
+    border: 2px solid;
 }

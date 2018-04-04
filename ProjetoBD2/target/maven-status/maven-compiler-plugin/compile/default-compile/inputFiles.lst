@@ -1,11 +1,14 @@
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/commands/Sair.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/commands/Topicos.java
+/home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/dao/Relacionamento.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/DaoFactoryIF.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/DaoFactory.java
+/home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/dao/Entidade.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/dao/app.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetodb2/gerenciadores/GerenciadorTopico.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/ConFactoryMYSQL.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/commands/PaginaTopico.java
+/home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetodb2/gerenciadores/GerenciadorComentario.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/commands/CadastroUsuario.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/commands/Login.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/commands/BuscaConteudo.java
@@ -14,6 +17,7 @@
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/ConFactoryNeo4j.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/servlet/FrontServlet.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/dao/UsuarioDaoMYSQL.java
+/home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/commands/ResponderTopico.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/DaoFactoryMYSQL.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/factory/ConFactoryMongo.java
 /home/flavio/ADS/4º Período/Banco de Dados II/Projeto2_BD2/ProjetoBD2/src/main/java/com/ifpb/projetobd2/modelo/Topico.java

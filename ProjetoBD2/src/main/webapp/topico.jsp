@@ -19,18 +19,33 @@
         <div class="container">
             <div class="topicos" style="width: 50rem;">
 
+                <h5>${autor.nome}</h5>
                 <h4>${topico.titulo}</h4>
                 <hr>
                 Categoria: <b>${topico.categoria}</b>
                 <br><br>
-                <h5>${autor.nome}</h5>
 
                 ${topico.conteudo}
                 <hr>
             </div>
             <br>
-            <div class="topicos"  style="width: 50rem;">
-                <form>
+
+            <c:if test="${!empty comentarios}">
+
+                <h4>Comentários dos usuários</h4>
+                <c:forEach var="comentario" items="${comentarios}">
+                    <div class="topicos"  style="width: 50rem;">
+                        <h5>${comentario.usuario.nome}</h5><hr>
+                        ${comentario.texto}
+                        
+                    </div>
+                        <br>
+                </c:forEach>
+            </c:if> 
+
+            <div class="topicos comentar"  style="width: 50rem;">
+                <form method="post" action="front">
+                    <input type="hidden" name="topico" value="${topico.id}">
                     <input type="hidden" name="command" value="ResponderTopico">
                     <br>
                     <textarea  name="comentario" class="form-control input-lg"
@@ -38,8 +53,9 @@
                     <br>
                     <input type="submit" value="Responder" class="btn btn-primary">
                 </form>
-                <hr>
+         
             </div>
+                    <br><br>
         </div>
 
     </body>

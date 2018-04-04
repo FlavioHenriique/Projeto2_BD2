@@ -2,8 +2,10 @@ package com.ifpb.projetobd2.dao;
 
 import com.ifpb.projetobd2.factory.ConFactoryNeo4j;
 import com.ifpb.projetobd2.modelo.Comentario;
+import com.ifpb.projetobd2.modelo.Usuario;
 import java.io.File;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -11,6 +13,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.bson.types.ObjectId;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
@@ -36,15 +40,15 @@ public class ComentarioDaoNeo4j {
             topico.setProperty("id", idTopico);
             comentario.setProperty("texto", c.getTexto());
             comentario.setProperty("data", Date.valueOf(c.getData()).toString());
-
+            comentario.setProperty("usuario", c.getUsuario().getEmail());
             comentario.createRelationshipTo(topico, Relacionamento.Pertence);
 
             tx.success();
         }
-
+        db.shutdown();
     }
 
-    public List<Comentario> buscar(String id) {
+    public List<Comentario> buscar(String id) throws ClassNotFoundException, SQLException {
 
         List<Comentario> comentarios = new ArrayList<>();
 
@@ -56,7 +60,8 @@ public class ComentarioDaoNeo4j {
             map.put("id", id.toString());
 
             Result rs = db.execute("match (n:Comentario)-[rel:Pertence]->(n2:Topico)"
-                    + "WHERE n2.id = $id return n",map);  
+                    + "WHERE n2.id = $id return n", map);
+
 
             if (rs.hasNext()) {
                 Iterator<Node> n = rs.columnAs("n");
@@ -66,11 +71,16 @@ public class ComentarioDaoNeo4j {
                     c.setData(LocalDate.parse((CharSequence) node.getProperty("data"), formatter));
                     c.setTexto(node.getProperty("texto").toString());
 
+                    UsuarioDaoMYSQL dao = new UsuarioDaoMYSQL();
+                    Usuario usuario = dao.buscar(node.getProperty("usuario").toString());
+
+                    c.setUsuario(usuario);
                     comentarios.add(c);
                 }
             }
             tx.success();
         }
+        db.shutdown();
         return comentarios;
     }
 
@@ -85,17 +95,18 @@ public class ComentarioDaoNeo4j {
 
             if (rs.hasNext()) {
                 Iterator<Node> n = rs.columnAs("n");
-          
+
                 for (Node node : Iterators.asIterable(n)) {
                     Comentario c = new Comentario();
                     c.setData(LocalDate.parse((CharSequence) node.getProperty("data"), formatter));
                     c.setTexto(node.getProperty("texto").toString());
-                    
+
                     comentarios.add(c);
                 }
             }
             tx.success();
         }
+        db.shutdown();
         return comentarios;
     }
 }

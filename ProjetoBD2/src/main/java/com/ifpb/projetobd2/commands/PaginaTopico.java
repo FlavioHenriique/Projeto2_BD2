@@ -2,6 +2,7 @@ package com.ifpb.projetobd2.commands;
 
 import com.ifpb.projetobd2.modelo.Topico;
 import com.ifpb.projetobd2.modelo.Usuario;
+import com.ifpb.projetodb2.gerenciadores.GerenciadorComentario;
 import com.ifpb.projetodb2.gerenciadores.GerenciadorTopico;
 import com.ifpb.projetodb2.gerenciadores.GerenciadorUsuario;
 import java.io.IOException;
@@ -21,12 +22,15 @@ public class PaginaTopico implements Command {
         try {
             GerenciadorUsuario gUsuario = new GerenciadorUsuario();
             GerenciadorTopico gTopico = new GerenciadorTopico();
+            GerenciadorComentario gComentario = new GerenciadorComentario();
+            
             
             Topico topico = gTopico.buscarTopico(new ObjectId(request.getParameter("topico")));
             Usuario autor = gUsuario.buscar(request.getParameter("usuario"));
             
             request.getSession().setAttribute("topico",topico);
             request.getSession().setAttribute("autor", autor);
+            request.getSession().setAttribute("comentarios", gComentario.buscar(request.getParameter("topico")));
             
             response.sendRedirect("topico.jsp");
             
