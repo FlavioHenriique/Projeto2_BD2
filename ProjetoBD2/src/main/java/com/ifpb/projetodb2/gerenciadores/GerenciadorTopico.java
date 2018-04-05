@@ -32,4 +32,8 @@ public class GerenciadorTopico {
     public Topico buscarTopico(ObjectId id){
         return dao.buscarTopico(id);
     }
+    
+    public void deletar(ObjectId id){
+        dao.deletar(id);
+    }
 }

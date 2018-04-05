@@ -57,7 +57,7 @@
                     <c:if test="${topico.usuario != usuario.email}">
                         <div class="topicos">
                             <a href="front?command=PaginaTopico&topico=${topico.id}&usuario=${topico.usuario}"  class="badge "><h5>${topico.titulo}</h5></a>
-                            <hr>
+                       
                         </div>
                     </c:if>
                 </c:forEach>

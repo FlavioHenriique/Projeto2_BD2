@@ -71,14 +71,17 @@
         case "1":
         {
             swal("OK!", "Seu cadastro foi realizado!", "success");
+            break;
         }
         case "2":
         {
             swal("Erro!", "Este email já está sendo utilizado!", "error");
+            break;
         }
          case "3":
         {
             swal("Erro!", "Usuário não encontrado!", "error");
+            break;
         }
     }
 </script>

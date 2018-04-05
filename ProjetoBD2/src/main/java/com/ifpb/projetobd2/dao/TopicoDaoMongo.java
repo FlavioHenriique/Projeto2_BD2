@@ -90,4 +90,12 @@ public class TopicoDaoMongo {
         }
         return null;
     }
+    
+    public void deletar(ObjectId id){
+        
+        BasicDBObject query = new BasicDBObject();
+        query.put("_id",id);
+        
+        conn.deleteOne(query);
+    }
 }

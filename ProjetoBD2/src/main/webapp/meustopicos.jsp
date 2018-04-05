@@ -28,6 +28,11 @@
         <c:forEach var="topico" items="${meusTopicos}">
 
             <div class="card topicos" style="width: 36rem;">
+                <div class="card-header">
+                    <a href="front?command=DeletarTopico&topico=${topico.id}" class="close"  aria-label="Close">
+                        <span aria-hidden="true"  href="index.jsp">&times;</span>
+                    </a>
+                </div>
                 <div class="card-body">
                     <h4>${topico.titulo}</h4><br>
                     Categoria: <b>${topico.categoria}</b><br><hr>
@@ -88,4 +93,5 @@
             swal("OK!", "O tópico foi criado!", "success");
         }
     }
+    
 </script>
