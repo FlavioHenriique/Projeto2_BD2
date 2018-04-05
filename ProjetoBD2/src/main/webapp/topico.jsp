@@ -32,18 +32,31 @@
 
             <c:if test="${!empty comentarios}">
 
-                <h4><b>Comentários dos usuários</b></h4>
-                <br>
-                <c:forEach var="comentario" items="${comentarios}">
-                    <div class="topicos"  style="width: 50rem;">
-                        <h5><b>${comentario.usuario.nome}</b></h5><hr>
-                        ${comentario.texto}
+                <div id="accordion"  style="width: 50rem;">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <a data-toggle="collapse" data-target="#comentarios"
+                                   aria-expanded="false" aria-controls="comentarios" href="#comentarios">
+                                    Mostrar comentários
+                                </a>
+                            </h5>
+                        </div>
 
+                        <div id="comentarios" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+
+                            <c:forEach var="comentario" items="${comentarios}">
+                                <div class="card-body">
+                                    <h5><b>${comentario.usuario.nome}</b></h5>
+                                    ${comentario.texto}
+                                    <hr>
+                                </div>
+                            </c:forEach>
+                        </div>
                     </div>
-                    <br>
-                </c:forEach>
+                </div>
             </c:if> 
-
+            <br>
             <div class="topicos comentar"  style="width: 50rem;">
                 <form method="post" action="front">
                     <input type="hidden" name="topico" value="${topico.id}">
