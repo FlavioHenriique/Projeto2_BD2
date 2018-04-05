@@ -28,7 +28,7 @@
         <c:forEach var="topico" items="${meusTopicos}">
 
             <div class="card topicos" style="width: 36rem;">
-                <div class="card-header" style="background-color: white;">
+                <div class="card-header">
                     <a href="front?command=DeletarTopico&topico=${topico.id}" class="close"  aria-label="Close">
                         <span aria-hidden="true"  href="index.jsp">&times;</span>
                     </a>
@@ -37,6 +37,10 @@
                     <h4>${topico.titulo}</h4><br>
                     Categoria: <b>${topico.categoria}</b><br><hr>
                     ${topico.conteudo}
+                </div>
+                <div class="card-footer">
+                    <a href="front?command=PaginaTopico&topico=${topico.id}&usuario=${usuario.email}"
+                     >Visualizar página</a>
                 </div>
             </div><br>
         </c:forEach>

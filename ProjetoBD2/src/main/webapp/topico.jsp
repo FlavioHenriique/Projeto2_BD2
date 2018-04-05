@@ -19,7 +19,7 @@
         <div class="container">
             <div class="topicos" style="width: 50rem;">
 
-                <h5>${autor.nome}</h5>
+                <h5><b>Autor:${autor.nome}</b></h5>
                 <h4>${topico.titulo}</h4>
                 <hr>
                 Categoria: <b>${topico.categoria}</b>
@@ -32,14 +32,15 @@
 
             <c:if test="${!empty comentarios}">
 
-                <h4>Comentários dos usuários</h4>
+                <h4><b>Comentários dos usuários</b></h4>
+                <br>
                 <c:forEach var="comentario" items="${comentarios}">
                     <div class="topicos"  style="width: 50rem;">
-                        <h5>${comentario.usuario.nome}</h5><hr>
+                        <h5><b>${comentario.usuario.nome}</b></h5><hr>
                         ${comentario.texto}
-                        
+
                     </div>
-                        <br>
+                    <br>
                 </c:forEach>
             </c:if> 
 
@@ -53,10 +54,22 @@
                     <br>
                     <input type="submit" value="Responder" class="btn btn-primary">
                 </form>
-         
-            </div>
-                    <br><br>
-        </div>
 
+            </div>
+            <br>
+
+            <c:if test="${sugeridos != null}">
+                <h4><b>Tópicos sugeridos</b></h4>
+                <br>
+                <c:forEach var="top" items="${sugeridos}">
+                    <c:if test="${ top.id != topico.id}">
+                        <div class="topicos"  style="width: 50rem;">
+                            <a href="front?command=PaginaTopico&topico=${top.id}&usuario=${top.usuario}"  class="badge "><h5>${top.titulo}</h5></a>
+                        </div>
+                    </c:if>
+                </c:forEach>
+            </c:if>
+            <br><br>
+        </div>
     </body>
 </html>

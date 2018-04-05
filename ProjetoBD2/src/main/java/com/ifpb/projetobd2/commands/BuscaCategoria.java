@@ -16,7 +16,7 @@ public class BuscaCategoria implements Command{
     
         GerenciadorTopico gTopico = new GerenciadorTopico();
         
-        request.setAttribute("buscaTopicos", gTopico.buscaTecnologia(request.getParameter("categoria")));
+        request.getSession().setAttribute("buscaTopicos", gTopico.buscaTecnologia(request.getParameter("categoria")));
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("inicial.jsp");
         try {

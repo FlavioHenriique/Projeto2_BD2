@@ -14,7 +14,7 @@
         <%@include file="menu.jsp" %>
         <br>
         <div class="container">
-            <h3>&nbsp;&nbsp;${usuario.nome}</h3><br><br>
+            <h3>&nbsp; <b>Bem vindo, ${usuario.nome}</b></h3><br><br>
             <div class="row">
 
                 <div>
@@ -50,8 +50,8 @@
             </div>
             <br><br>
 
-            <c:if test="${buscaTopicos != null}">
-                <h4>Tópicos encontrados</h4>
+            <c:if test="${buscaTopicos != null && !empty buscaTopicos}">
+                <h4><b>Tópicos encontrados</b></h4>
                 <br>
                 <c:forEach var="topico" items="${buscaTopicos}">
                     <c:if test="${topico.usuario != usuario.email}">
@@ -62,6 +62,9 @@
                     </c:if>
                 </c:forEach>
             </c:if>
+                <c:if test="${empty buscaTopicos}">
+                    <h4><b>Não foi encontrado nenhum tópico</b></h4>
+                </c:if>
         </div>
     </body>
 </html>
