@@ -18,7 +18,7 @@ public class DeletarTopico implements Command{
         gTopico.deletar(new ObjectId(request.getParameter("topico")));
         
         try {
-            response.sendRedirect("front?command=MeusTopicos");
+            response.sendRedirect("front?command=MeusTopicos&mensagem=2");
         } catch (IOException ex) {
             Logger.getLogger(DeletarTopico.class.getName()).log(Level.SEVERE, null, ex);
         }

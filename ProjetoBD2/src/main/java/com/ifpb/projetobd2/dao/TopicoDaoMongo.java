@@ -85,7 +85,7 @@ public class TopicoDaoMongo {
 
         if (cursor.hasNext()) {
             Topico t = (Topico) cursor.next();
-            System.out.println(t.toString());
+          
             return t;
         }
         return null;
@@ -97,5 +97,8 @@ public class TopicoDaoMongo {
         query.put("_id",id);
         
         conn.deleteOne(query);
+        
+        ComentarioDaoNeo4j dao = new ComentarioDaoNeo4j();
+        dao.deletar(id.toString());
     }
 }

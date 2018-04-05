@@ -62,7 +62,6 @@ public class ComentarioDaoNeo4j {
             Result rs = db.execute("match (n:Comentario)-[rel:Pertence]->(n2:Topico)"
                     + "WHERE n2.id = $id return n", map);
 
-
             if (rs.hasNext()) {
                 Iterator<Node> n = rs.columnAs("n");
 
@@ -108,5 +107,19 @@ public class ComentarioDaoNeo4j {
         }
         db.shutdown();
         return comentarios;
+    }
+
+    public void deletar(String id) {
+
+        try (Transaction tx = db.beginTx()) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("id", id);
+            
+            db.execute("match (n:Comentario)-[rel:Pertence]->(n2:Topico)"
+                    + " WHERE n2.id = $id DELETE n, n2", map);
+
+            tx.success();
+        }
+        db.shutdown();
     }
 }

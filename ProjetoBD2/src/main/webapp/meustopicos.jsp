@@ -28,7 +28,7 @@
         <c:forEach var="topico" items="${meusTopicos}">
 
             <div class="card topicos" style="width: 36rem;">
-                <div class="card-header">
+                <div class="card-header" style="background-color: white;">
                     <a href="front?command=DeletarTopico&topico=${topico.id}" class="close"  aria-label="Close">
                         <span aria-hidden="true"  href="index.jsp">&times;</span>
                     </a>
@@ -91,6 +91,12 @@
         case "1":
         {
             swal("OK!", "O tópico foi criado!", "success");
+            break;
+        }
+         case "2":
+        {
+            swal("OK!", "O tópico foi deletado!", "success");
+            break;
         }
     }
     
