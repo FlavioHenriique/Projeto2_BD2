@@ -68,14 +68,8 @@
                                    class="form-control  input-lg">
                             <input type="text" name="titulo" placeholder="Digite o título" required
                                    class="form-control  input-lg"><br>
-                            <select name="categoria" class="form-control" required>
-                                <option value="" disabled selected>Selecione uma tecnologia...</option>
-                                <option value="Java">Java</option>
-                                <option value="C#">C#</option>
-                                <option value="Python">Python</option>
-                                <option value="Javascript">Javascript</option>
-                                <option value="PHP">PHP</option>
-                            </select><br>
+                            <%@include file="categorias.jsp" %>
+                            <br>
                             <textarea type="text" name="conteudo" placeholder="Digite o conteúdo..." required
                                       class="form-control  input-lg" rows="6"></textarea><br>
 

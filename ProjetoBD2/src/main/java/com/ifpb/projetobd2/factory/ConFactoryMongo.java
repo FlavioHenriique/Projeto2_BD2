@@ -5,6 +5,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import org.bson.codecs.configuration.CodecRegistry;

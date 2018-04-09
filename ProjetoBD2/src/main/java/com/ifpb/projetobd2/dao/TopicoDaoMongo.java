@@ -9,9 +9,11 @@ import com.mongodb.DBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
-import static com.mongodb.client.model.Filters.ne;
+import static com.mongodb.client.model.Filters.text;
 import static com.mongodb.client.model.Indexes.ascending;
 import static com.mongodb.client.model.Indexes.descending;
+import com.mongodb.client.model.Projections;
+import com.mongodb.client.model.Sorts;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
@@ -33,7 +35,7 @@ public class TopicoDaoMongo {
     }
 
     public List<Topico> buscar(String email) {
-        
+
         MongoCursor cursor = conn.find(new BasicDBObject("usuario", email))
                 .sort(descending("data")).iterator();
         List<Topico> lista = new ArrayList<>();
@@ -85,20 +87,41 @@ public class TopicoDaoMongo {
 
         if (cursor.hasNext()) {
             Topico t = (Topico) cursor.next();
-          
+
             return t;
         }
         return null;
     }
-    
-    public void deletar(ObjectId id){
-        
+
+    public void deletar(ObjectId id) {
+
         BasicDBObject query = new BasicDBObject();
-        query.put("_id",id);
-        
+        query.put("_id", id);
+
         conn.deleteOne(query);
-        
+
         ComentarioDaoNeo4j dao = new ComentarioDaoNeo4j();
         dao.deletar(id.toString());
+
+    }
+
+    public List<Topico> buscaConteudo(String conteudo) {
+    
+        
+        BasicDBObject sortCommand = new BasicDBObject("$text",
+                new BasicDBObject("$search",conteudo));
+        
+        
+        MongoCursor cursor = conn.find(sortCommand).projection(
+                Projections.metaTextScore("score")).sort(Sorts.metaTextScore("score")).iterator();
+        
+        List<Topico> lista = new ArrayList<>();
+  
+        while (cursor.hasNext()) {
+            Topico t = (Topico) cursor.next();
+            lista.add(t);
+        }
+       
+        return lista;
     }
 }

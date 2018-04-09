@@ -28,12 +28,16 @@ public class GerenciadorTopico {
     public List<Topico> buscaTecnologia(String tecnologia) {
         return dao.buscarTecnologia(tecnologia);
     }
-    
-    public Topico buscarTopico(ObjectId id){
+
+    public Topico buscarTopico(ObjectId id) {
         return dao.buscarTopico(id);
     }
-    
-    public void deletar(ObjectId id){
+
+    public void deletar(ObjectId id) {
         dao.deletar(id);
+    }
+
+    public List<Topico> buscaConteudo(String conteudo) {
+        return dao.buscaConteudo(conteudo);
     }
 }
