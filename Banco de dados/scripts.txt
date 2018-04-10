@@ -11,5 +11,7 @@ CREATE TABLE USUARIO(
 
 use projetobd2;
 db.createCollection("topico");
+db.topico.createIndex({conteudo: "text", titulo: "text"});
+
 
 
