@@ -116,7 +116,7 @@ public class ComentarioDaoNeo4j {
             map.put("id", id);
             
             db.execute("match (n:Comentario)-[rel:Pertence]->(n2:Topico)"
-                    + " WHERE n2.id = $id DELETE n, n2", map);
+                    + " WHERE n2.id = $id DETACH DELETE  n, n2", map);
 
             tx.success();
         }
