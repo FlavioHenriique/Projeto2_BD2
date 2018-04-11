@@ -14,12 +14,16 @@
         <%@include file="menu.jsp" %>   
         <br>
         <div class="container">
-            <h3>&nbsp; <b>Bem vindo, ${usuario.nome}</b></h3><br><br>
+            <h2>&nbsp; <b>Bem vindo, ${usuario.nome}</b></h2><br><br>
+
+            <h4>&nbsp; <b>Busque por tópicos aqui: </b></h4>
+            <br>
             <div class="row">
 
                 <div>
                     <form class="form-inline" method="get" action="front">
                         <div class="form-group mx-sm-3 mb-2">
+                            
                             <input type="hidden" name="command" value="BuscaCategoria">
                             <%@include  file="categorias.jsp" %>
                         </div>
@@ -48,13 +52,13 @@
                 <c:forEach var="topico" items="${buscaTopicos}">
                     <c:if test="${topico.usuario != usuario.email}">
                         <div class="topicos">
-                            <a href="front?command=PaginaTopico&topico=${topico.id}&usuario=${topico.usuario}"
+                            <a href="front?command=PaginaTopico&topico=${topico.id}"
                                class="badge "><h5>${topico.titulo}</h5></a>
                         </div>
                     </c:if>
                 </c:forEach>
             </c:if>
-            <c:if test="${empty buscaTopicos}">
+            <c:if test="${empty buscaTopicos && buscaTopicos != null}">
                 <h4><b>Não foi encontrado nenhum tópico</b></h4>
             </c:if>
         </div>

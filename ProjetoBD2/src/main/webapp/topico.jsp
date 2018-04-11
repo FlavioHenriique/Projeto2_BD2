@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <html>
@@ -38,7 +39,7 @@
                             <h5 class="mb-0">
                                 <a data-toggle="collapse" data-target="#comentarios"
                                    aria-expanded="false" aria-controls="comentarios" href="#comentarios">
-                                    Mostrar comentários
+                                    Comentários (${fn:length(comentarios)})
                                 </a>
                             </h5>
                         </div>

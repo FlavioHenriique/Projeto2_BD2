@@ -26,8 +26,8 @@ public class PaginaTopico implements Command {
             
             
             Topico topico = gTopico.buscarTopico(new ObjectId(request.getParameter("topico")));
-            Usuario autor = gUsuario.buscar(request.getParameter("usuario"));
-            
+            Usuario autor = gUsuario.buscar(topico.getUsuario());
+    
             request.getSession().setAttribute("sugeridos", gTopico.buscaTecnologia(topico.getCategoria()));
             request.getSession().setAttribute("topico",topico);
             request.getSession().setAttribute("autor", autor);

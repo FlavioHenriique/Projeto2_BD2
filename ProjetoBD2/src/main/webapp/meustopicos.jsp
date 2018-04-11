@@ -16,8 +16,6 @@
     </head>
     <body>
         <%@include file="menu.jsp" %>
-
-
     <center>
         <br>
 
@@ -39,7 +37,7 @@
                     ${topico.conteudo}
                 </div>
                 <div class="card-footer">
-                    <a href="front?command=PaginaTopico&topico=${topico.id}&usuario=${usuario.email}"
+                    <a href="front?command=PaginaTopico&topico=${topico.id}"
                      >Visualizar página</a>
                 </div>
             </div><br>
